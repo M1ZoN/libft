@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mislamov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/22 16:16:59 by mislamov          #+#    #+#             */
-/*   Updated: 2019/07/22 17:05:09 by mislamov         ###   ########.fr       */
+/*   Created: 2019/07/24 17:18:38 by mislamov          #+#    #+#             */
+/*   Updated: 2019/07/24 17:18:39 by mislamov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-void	ft_bzero(void *str, size_t n)
+size_t	strlen(const char *str)
 {
-	unsigned char	*ptr;
+	size_t	i;
 
-	ptr = (unsigned char*)str;
-	while (n > 0)
-	{
-		*(ptr) = '\0';
-		ptr++;
-		n--;
-	}
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
 }

@@ -10,12 +10,15 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
+
 void	*ft_memmove(void *str1, const void *str2, size_t n)
 {
 	unsigned char	*ptr;
 	unsigned char	*ptr2;
 	size_t			i;
 
+	i = 0;
 	ptr = (unsigned char*)str1;
 	ptr2 = (unsigned char*)str2;
 	if (ptr2 < ptr)

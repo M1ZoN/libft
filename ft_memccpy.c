@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
+
 void	*ft_memccpy(void *str1, void *str2, size_t n)
 {
 	unsigned char	*ptr;

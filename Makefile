@@ -1,26 +1,38 @@
- NAME = libft.a
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: mislamov <marvin@42.fr>                    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2019/07/24 16:49:08 by mislamov          #+#    #+#              #
+#    Updated: 2019/07/24 16:49:10 by mislamov         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
 
- SRC_FILES = ft_bzero.c ft_memccpy.c ft_memchr.c ft_memcmp.c \
-			 ft_memcpy.c ft_memmove.c ft_memset.c
- 
- INC = includes/
- 
- OBJ = ft_bzero.o ft_memccpy.o ft_memchr.o ft_memcmp.o \
-	   ft_memcpy.o ft_memmove.o ft_memset.o
+NAME=libft.a
 
- FLAGS = -Wall -Werror -Wextra
+SRC_FILES=ft_memset.c ft_memccpy.c ft_memchr.c \
+		  ft_memcpy.c ft_bzero.c ft_memcmp.c \
+		  ft_memmove.c ft_memset.c
 
- all: $(NAME)
+INC=includes/libft.h
 
- $(NAME): 
- 		@gcc $(FLAGS) -I $(INC) -c $(SRC_FILES) libft.h
-		@ar rc $(NAME) $(OBJ)
-		@ranlib $(NAME)
+OBJ=*.o
 
- clean:
-		@/bin/rm -f $(OBJ)
+FLAGS=-Wall -Werror -Wextra
 
- fclean:
-		@/bin/rm -f $(NAME)
+all: $(NAME)
 
- re: fclean all
+$(NAME):
+	@gcc -c $(FLAGS) $(SRC_FILES) -I $(INC)
+	@ar rc $(NAME) $(OBJ)
+	@ranlib $(NAME)
+
+clean:
+	@/bin/rm -f $(OBJ)
+
+fclean: clean
+	@/bin/rm -f $(NAME)
+
+re: fclean all

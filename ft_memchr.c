@@ -10,13 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdlib.h>
 
 void	*ft_memchr(const void *str, int c, size_t n)
 {
 	size_t			i;
-	unsigned char   *ptr;
-	
+	unsigned char	*ptr;
+
 	i = 0;
 	ptr = (unsigned char*)str;
 	while (++i <= n)
@@ -24,5 +24,5 @@ void	*ft_memchr(const void *str, int c, size_t n)
 		if (*(ptr++) == (unsigned char)c)
 			return ((void*)--ptr);
 	}
-	
+	return (0);
 }
