@@ -10,4 +10,16 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <string.h>
 
+int	ft_strcmp(const char *str1, const char *str2)
+{
+	size_t	i;
+
+	i = 0;
+	while ((str1[i] == str2[i]) && str1[i] && str2[i])
+	{
+		i++;
+	}
+	return (str1[i] - str2[i]);
+}

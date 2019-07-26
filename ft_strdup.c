@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include<stdlib.h>
+#include <stdlib.h>
 
 char	*ft_strdup(const char *str)
 {
@@ -20,7 +20,7 @@ char	*ft_strdup(const char *str)
 	i = 0;
 	while (str[i])
 		i++;
-	dest = (char *) malloc(i);
+	dest = (char *)malloc(i);
 	i = 0;
 	while (str[i])
 	{

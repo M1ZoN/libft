@@ -10,4 +10,20 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <string.h>
 
+char	*ft_strchr(const char *str, int c)
+{
+	size_t	i;
+	char	*ptr;
+
+	i = 0;
+	ptr = (char*)str;
+	while (ptr[i])
+	{
+		if (c == (int)ptr[i])
+			return (ptr);
+		i++;
+	}
+	return (NULL);
+}

@@ -10,4 +10,23 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <string.h>
 
+char	*ft_strncat(char *dest, const char *src, size_t n)
+{
+	size_t	i;
+	size_t	j;
+
+	i = 0;
+	j = 0;
+	while (dest[i])
+		i++;
+	while (src[j] && n > 0)
+	{
+		dest[i] = src[j];
+		i++;
+		j++;
+		n--;
+	}
+	return (dest);
+}

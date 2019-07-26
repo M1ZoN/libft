@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include <string.h>
 
 void	*ft_memccpy(void *str1, void *str2, size_t n)
 {

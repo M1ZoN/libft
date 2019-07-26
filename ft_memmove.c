@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
+#include <string.h>
 
 void	*ft_memmove(void *str1, const void *str2, size_t n)
 {

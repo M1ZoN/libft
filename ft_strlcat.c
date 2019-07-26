@@ -10,4 +10,31 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <string.h>
 
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
+{
+	size_t	i;
+	size_t	j;
+	size_t	last;
+
+	i = 0;
+	j = 0;
+	last = 0;
+	while (dst[i] != '\0')
+		i++;
+	while (src[last] != '\0')
+		last++;
+	if (size <= i)
+		last += size;
+	else
+		last += i;
+	while (src[j] != '\0' && i + 1 < size)
+	{
+		dst[i] = src[j];
+		i++;
+		j++;
+	}
+	dst[i] = '\0';
+	return (last);
+}
