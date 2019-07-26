@@ -28,5 +28,6 @@ char	*ft_strncat(char *dest, const char *src, size_t n)
 		j++;
 		n--;
 	}
+	dest[i] = '\0';
 	return (dest);
 }

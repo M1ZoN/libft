@@ -14,22 +14,19 @@
 
 char	*ft_strcat(char *str1, char *str2)
 {
-	unsigned char	*ptr;
-	unsigned char	*ptr2;
 	size_t			i;
-	size_t			i2;
+	size_t			j;
 
 	i = 0;
-	i2 = 0;
-	ptr = (unsigned char*)str1;
-	ptr2 = (unsigned char*)str2;
-	while (ptr[i])
+	j = 0;
+	while (str1[i])
 		i++;
-	while (ptr2[i2])
+	while (str2[j])
 	{
-		ptr[i] = ptr2[i2];
-		i2++;
+		str1[i] = str2[j];
+		j++;
 		i++;
 	}
+	str1[i] = '\0';
 	return (str1);
 }
