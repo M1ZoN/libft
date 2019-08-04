@@ -10,6 +10,7 @@
 		"ft_toupper.c": "cpp",
 		"ft_isalnum.c": "cpp",
 		"ft_isalpha.c": "cpp",
-		"ft_isascii.c": "cpp"
+		"ft_isascii.c": "cpp",
+		"libft.h": "c"
 	}
 }
