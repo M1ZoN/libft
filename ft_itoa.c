@@ -13,34 +13,29 @@
 #include <stdlib.h>
 #include "libft.h"
 
-static int	num_size(int n)
+char	*ft_itoa(int n)
 {
-	size_t	i;
+	int				col;
+	int				on;
+	char			*str;
+	unsigned int	temp;
 
-	i = 0;
-	if (n < 0)
-		i++;
-	while (n /= 10)
-		i++;
-	return (i);
-}
-
-char		*ft_itoa(int n)
-{
-	char			*res;
-	unsigned int	num;
-	size_t			i;
-
-	i = num_size(n);
-	num = n;
-	if (n < 0)
-		num = -n;
-	if (!(res = ft_strnew(i + 1)))
+	on = n < 0 ? 1 : 0;
+	col = n;
+	temp = (n < 0) ? (-n) : n;
+	while (n > 8 || n < -8)
+	{
+		on++;
+		n = n / 10;
+	}
+	if (!(str = (char *)malloc(sizeof(char) * (on + 2))))
 		return (NULL);
-	res[i] = num % 10 + '0';
-	while (num /= 10)
-		res[--i] = num % 10 + '0';
-	if (n < 0)
-		res[0] = '-';
-	return (res);
+	str[on + 1] = '\0';
+	while (on > -1)
+	{
+		str[on--] = (temp % 10) + '0';
+		temp = temp / 10;
+	}
+	str[0] = col < 0 ? '-' : str[0];
+	return (str);
 }
