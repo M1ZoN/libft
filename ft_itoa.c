@@ -15,27 +15,26 @@
 
 char	*ft_itoa(int n)
 {
-	int				col;
-	int				on;
-	char			*str;
-	unsigned int	temp;
+	unsigned int	nbr;
+	unsigned int	len;
+	int				neg;
+	char			*res;
 
-	on = n < 0 ? 1 : 0;
-	col = n;
-	temp = (n < 0) ? (-n) : n;
-	while (n > 8 || n < -8)
-	{
-		on++;
-		n = n / 10;
-	}
-	if (!(str = (char *)malloc(sizeof(char) * (on + 2))))
+	len = 1;
+	nbr = (n < 0) ? -n : n;
+	neg = (n < 0) ? 1 : 0;
+	if (neg)
+		len++;
+	while (n /= 10)
+		len++;
+	res = ft_strnew(len--);
+	if (!(res))
 		return (NULL);
-	str[on + 1] = '\0';
-	while (on > -1)
+	while (((len + 1) && neg) || (len && !neg))
 	{
-		str[on--] = (temp % 10) + '0';
-		temp = temp / 10;
+		res[len--] = nbr % 10 + '0';
+		nbr /= 10;
 	}
-	str[0] = col < 0 ? '-' : str[0];
-	return (str);
+	(!neg) ? res[len] = '-' : 0;
+	return (res);
 }
