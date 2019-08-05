@@ -15,28 +15,27 @@
 
 char	*ft_itoa(int n)
 {
-	int		num;
-	int		len;
-	int		sign;
-	char	*res;
+	int				num;
+	int				num_len;
+	unsigned int	temp;
+	char			*res;
 
-	if (n == -2147483648)
-		return (ft_strdup("-2147483648"));
+	num_len = (n < 0) ? 1 : 0;
 	num = n;
-	len = 2;
-	sign = (n < 0) ? 1 : 0;
-	while (num /= 10)
-		len++;
-	len += sign;
-	if ((res = (char*)malloc(sizeof(char) * len)) == NULL)
-		return (NULL);
-	res[--len] = '\0';
-	while (len--)
+	temp = (n < 0) ? (-n) : n;
+	while (n >= 10 || n <= -10)
 	{
-		res[len] = n % 10 + '0';
-		n = n / 10;
+		num_len++;
+		n /= 10;
 	}
-	if (sign)
-		res[0] = '-';
+	if (!(res = (char *)malloc(sizeof(char) * (num_len + 2))))
+		return (NULL);
+	res[num_len + 1] = '\0';
+	while (num_len >= 0)
+	{
+		res[num_len--] = (temp % 10) + '0';
+		temp /= 10;
+	}
+	res[0] = num < 0 ? '-' : res[0];
 	return (res);
 }
