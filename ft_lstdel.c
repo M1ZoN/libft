@@ -1,38 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_lstdel.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mislamov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/24 17:27:58 by mislamov          #+#    #+#             */
-/*   Updated: 2019/07/24 17:27:59 by mislamov         ###   ########.fr       */
+/*   Created: 2019/08/05 10:16:25 by mislamov          #+#    #+#             */
+/*   Updated: 2019/08/05 10:16:27 by mislamov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "libft.h"
+#include <stdlib.h>
 
-char	*ft_strnstr(const char *b, const char *l, size_t len)
+void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
 {
-	size_t	i;
-	size_t	j;
+	t_list	*node_ptr;
+	t_list	*next_ptr;
 
-	i = 0;
-	if (!(*l))
-		return ((char *)b);
-	while (b[i] && len > i)
+	node_ptr = *alst;
+	while (node_ptr)
 	{
-		j = 0;
-		while (b[i] && b[j] &&
-				i < len && b[i] == l[j])
-		{
-			i++;
-			j++;
-		}
-		if (l[j] == '\0')
-			return ((char*)b + i - j);
-		i = i - j;
-		++i;
+		next_ptr = node_ptr->next;
+		del(node_ptr->content, *node_ptr->content_size);
+		free(node_ptr);
+		node_ptr = next_ptr;
 	}
-	return (NULL);
+	*alst = NULL;
 }

@@ -1,38 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mislamov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/24 17:27:58 by mislamov          #+#    #+#             */
-/*   Updated: 2019/07/24 17:27:59 by mislamov         ###   ########.fr       */
+/*   Created: 2019/08/05 10:16:57 by mislamov          #+#    #+#             */
+/*   Updated: 2019/08/05 10:16:59 by mislamov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "libft.h"
 
-char	*ft_strnstr(const char *b, const char *l, size_t len)
+t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
-	size_t	i;
-	size_t	j;
+	t_list	*head;
+	t_list	*node_ptr;
+	t_list	*new_node;
+	t_list	*new_ptr;
 
-	i = 0;
-	if (!(*l))
-		return ((char *)b);
-	while (b[i] && len > i)
+	node_ptr = lst;
+	if (!node_ptr)
+		return (NULL);
+	new_node = f(node_ptr);
+	head = new_node;
+	node_ptr = node_ptr->next;
+	new_ptr = head;
+	while (node_ptr)
 	{
-		j = 0;
-		while (b[i] && b[j] &&
-				i < len && b[i] == l[j])
-		{
-			i++;
-			j++;
-		}
-		if (l[j] == '\0')
-			return ((char*)b + i - j);
-		i = i - j;
-		++i;
+		new_node = f(node_ptr);
+		new_ptr->next = new_node;
+		node_ptr = node_ptr->next;
 	}
-	return (NULL);
+	return (head);
 }

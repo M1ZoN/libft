@@ -1,38 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnstr.c                                       :+:      :+:    :+:   */
+/*   ft_lstadd.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mislamov <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/07/24 17:27:58 by mislamov          #+#    #+#             */
-/*   Updated: 2019/07/24 17:27:59 by mislamov         ###   ########.fr       */
+/*   Created: 2019/08/05 10:16:37 by mislamov          #+#    #+#             */
+/*   Updated: 2019/08/05 10:16:40 by mislamov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
+#include "libft.h"
 
-char	*ft_strnstr(const char *b, const char *l, size_t len)
+void	ft_lstadd(t_list **alst, t_list *new)
 {
-	size_t	i;
-	size_t	j;
+	t_list	*node_ptr;
 
-	i = 0;
-	if (!(*l))
-		return ((char *)b);
-	while (b[i] && len > i)
-	{
-		j = 0;
-		while (b[i] && b[j] &&
-				i < len && b[i] == l[j])
-		{
-			i++;
-			j++;
-		}
-		if (l[j] == '\0')
-			return ((char*)b + i - j);
-		i = i - j;
-		++i;
-	}
-	return (NULL);
+	node_ptr = *alst;
+	new->next = node_ptr->next;
+	node_ptr->next = new;
 }
