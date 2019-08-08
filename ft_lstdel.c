@@ -22,7 +22,7 @@ void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
 	while (node_ptr)
 	{
 		next_ptr = node_ptr->next;
-		del(node_ptr->content, *node_ptr->content_size);
+		del(node_ptr->content, node_ptr->content_size);
 		free(node_ptr);
 		node_ptr = next_ptr;
 	}
