@@ -6,7 +6,7 @@
 /*   By: mislamov <mislamov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/05 10:16:25 by mislamov          #+#    #+#             */
-/*   Updated: 2019/08/08 19:41:09 by mislamov         ###   ########.fr       */
+/*   Updated: 2019/08/08 19:55:12 by mislamov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,7 @@ void	ft_lstdel(t_list **alst, void (*del)(void *, size_t))
 	while (node_ptr)
 	{
 		next_ptr = node_ptr->next;
-		del(node_ptr->content, node_ptr->content_size);
-		free(node_ptr);
+		ft_lstdelone(&node_ptr, del);
 		node_ptr = next_ptr;
 	}
 	*alst = NULL;
