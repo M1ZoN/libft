@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mislamov <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mislamov <mislamov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/25 23:35:55 by mislamov          #+#    #+#             */
-/*   Updated: 2019/07/25 23:35:57 by mislamov         ###   ########.fr       */
+/*   Updated: 2019/08/08 18:26:56 by mislamov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ char	*ft_strnew(size_t size)
 	res = malloc(sizeof(char) * (size + 1));
 	if (!res)
 		return (NULL);
-	while (i < size)
+	while (i <= size)
 		res[i++] = '\0';
+	res[0] = '\0';
 	return (res);
 }

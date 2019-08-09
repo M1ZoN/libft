@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mislamov <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mislamov <mislamov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/25 23:37:35 by mislamov          #+#    #+#             */
-/*   Updated: 2019/07/25 23:37:38 by mislamov         ###   ########.fr       */
+/*   Updated: 2019/08/08 17:12:37 by mislamov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	size_t	i;
 	char	*str;
 
+	if (!s1 || !s2)
+		return (NULL);
 	if (s1)
 		i = (size_t)(ft_strlen(s1));
 	else if (s2)
