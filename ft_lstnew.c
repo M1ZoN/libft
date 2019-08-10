@@ -6,7 +6,7 @@
 /*   By: mislamov <mislamov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/05 10:16:04 by mislamov          #+#    #+#             */
-/*   Updated: 2019/08/08 20:00:46 by mislamov         ###   ########.fr       */
+/*   Updated: 2019/08/08 20:47:57 by mislamov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,6 @@ t_list	*ft_lstnew(void const *content, size_t content_size)
 		new_node->content = ft_memcpy(new_node->content, content, content_size);
 		new_node->content_size = content_size;
 	}
+	new_node->next = NULL;
 	return (new_node);
 }

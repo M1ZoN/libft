@@ -6,17 +6,20 @@
 /*   By: mislamov <mislamov@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/08/05 10:16:57 by mislamov          #+#    #+#             */
-/*   Updated: 2019/08/08 19:57:42 by mislamov         ###   ########.fr       */
+/*   Updated: 2019/08/09 17:48:49 by mislamov         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
 t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
 	t_list	*head;
 	t_list	*node_ptr;
 
+	if (!lst || !f)
+		return (NULL);
 	node_ptr = f(lst);
 	head = node_ptr;
 	while (lst->next)
@@ -31,4 +34,3 @@ t_list	*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 	}
 	return (head);
 }
-
